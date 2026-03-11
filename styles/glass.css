@@ -1,0 +1,145 @@
+/* ============================================================
+   DENTAL GLASSMORPHISM UI KIT — Glass Surfaces (LIGHT)
+   ============================================================ */
+
+/* ── Base Glass ──────────────────────────────────────── */
+.glass {
+    background: var(--glass-bg);
+    backdrop-filter: blur(var(--glass-blur));
+    -webkit-backdrop-filter: blur(var(--glass-blur));
+    border: var(--glass-border);
+    box-shadow: var(--glass-shadow), var(--glass-inner-glow);
+    border-radius: var(--radius-lg);
+    transition:
+        background var(--duration-normal) var(--ease-out),
+        box-shadow var(--duration-normal) var(--ease-out),
+        transform var(--duration-normal) var(--ease-out);
+}
+
+.glass:hover {
+    background: var(--glass-bg-light);
+    box-shadow: var(--glass-shadow-lg), var(--glass-inner-glow), var(--glass-outer-glow);
+}
+
+/* ── Solid Glass ─────────────────────────────────────── */
+.glass-solid {
+    background: var(--glass-bg-solid);
+    backdrop-filter: blur(var(--glass-blur-heavy));
+    -webkit-backdrop-filter: blur(var(--glass-blur-heavy));
+    border: var(--glass-border-light);
+    box-shadow: var(--glass-shadow), var(--glass-inner-glow);
+    border-radius: var(--radius-lg);
+}
+
+/* ── Dark Glass (for dark sections) ──────────────────── */
+.glass-dark {
+    background: var(--glass-bg-dark);
+    backdrop-filter: blur(var(--glass-blur-heavy));
+    -webkit-backdrop-filter: blur(var(--glass-blur-heavy));
+    border: 1px solid rgba(255, 255, 255, 0.10);
+    box-shadow: var(--glass-shadow-lg);
+    border-radius: var(--radius-lg);
+    color: rgba(255, 255, 255, 0.90);
+}
+
+.glass-dark h1,
+.glass-dark h2,
+.glass-dark h3,
+.glass-dark h4,
+.glass-dark h5 {
+    color: #fff;
+}
+
+.glass-dark p,
+.glass-dark .text-muted {
+    color: rgba(255, 255, 255, 0.70);
+}
+
+/* ── Liquid Glass (animated) ─────────────────────────── */
+.glass-liquid {
+    background: var(--glass-bg);
+    backdrop-filter: blur(var(--glass-blur));
+    -webkit-backdrop-filter: blur(var(--glass-blur));
+    border: var(--glass-border-glow);
+    box-shadow: var(--liquid-shadow), var(--glass-inner-glow);
+    border-radius: var(--radius-xl);
+    position: relative;
+    overflow: hidden;
+    transition: all var(--duration-slow) var(--ease-out);
+}
+
+.glass-liquid::before {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    border-radius: inherit;
+    background: linear-gradient(135deg,
+            rgba(136, 210, 240, 0.12) 0%,
+            transparent 40%,
+            transparent 60%,
+            rgba(136, 210, 240, 0.08) 100%);
+    z-index: 0;
+    animation: liquid-wobble 6s ease-in-out infinite;
+    pointer-events: none;
+}
+
+.glass-liquid>* {
+    position: relative;
+    z-index: 1;
+}
+
+.glass-liquid:hover {
+    box-shadow:
+        0 8px 40px rgba(136, 210, 240, 0.20),
+        0 2px 8px rgba(0, 0, 0, 0.08),
+        var(--glass-inner-glow);
+    border-color: rgba(136, 210, 240, 0.50);
+    transform: translateY(-2px);
+}
+
+/* ── Shimmer ─────────────────────────────────────────── */
+.glass-shimmer {
+    position: relative;
+    overflow: hidden;
+}
+
+.glass-shimmer::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.25) 50%, transparent 100%);
+    transition: none;
+    pointer-events: none;
+}
+
+.glass-shimmer:hover::after {
+    animation: shimmer 1.2s ease-out forwards;
+}
+
+/* ── Blobs ───────────────────────────────────────────── */
+.blob {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(100px);
+    pointer-events: none;
+    z-index: -1;
+}
+
+.blob-primary {
+    background: radial-gradient(circle, hsla(195, 65%, 75%, 0.30), transparent 70%);
+}
+
+.blob-accent {
+    background: radial-gradient(circle, hsla(175, 55%, 70%, 0.20), transparent 70%);
+}
+
+.blob-animate {
+    animation: blob-float 15s ease-in-out infinite;
+}
+
+.blob-animate-reverse {
+    animation: blob-float 18s ease-in-out infinite reverse;
+}
