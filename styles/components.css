@@ -14,7 +14,10 @@
     padding: 0 var(--space-8);
     gap: var(--space-6);
     font-size: var(--text-sm);
-    position: relative;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
     z-index: calc(var(--z-sticky) + 1);
 }
 
@@ -51,8 +54,10 @@
    2. HEADER / NAVIGATION
    ================================================================ */
 .header {
-    position: sticky;
-    top: 0;
+    position: fixed;
+    top: var(--topbar-height);
+    left: 0;
+    right: 0;
     z-index: var(--z-sticky);
     height: var(--header-height);
     display: flex;
@@ -63,6 +68,11 @@
     -webkit-backdrop-filter: blur(var(--glass-blur-heavy));
     border-bottom: 1px solid rgba(0, 0, 0, 0.06);
     transition: all var(--duration-normal) var(--ease-out);
+}
+
+/* offset body for fixed topbar + header */
+body {
+    padding-top: calc(var(--topbar-height) + var(--header-height));
 }
 
 .header.scrolled {

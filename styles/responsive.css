@@ -2,6 +2,7 @@
    DENTAL GLASSMORPHISM UI KIT — Responsive (LIGHT)
    ============================================================ */
 
+/* ── Tablet ──────────────────────────────────────────── */
 @media (max-width: 960px) {
     :root {
         --header-height: 64px;
@@ -30,8 +31,26 @@
     .team-grid {
         grid-template-columns: repeat(2, 1fr);
     }
+
+    .content-block,
+    .content-block.reverse {
+        grid-template-columns: 1fr;
+        direction: ltr;
+        gap: var(--space-8);
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: var(--space-8);
+    }
+
+    /* Contact form 2-col → 1-col */
+    #contact-form [style*="grid-template-columns: 1fr 1fr"] {
+        grid-template-columns: 1fr !important;
+    }
 }
 
+/* ── Mobile ──────────────────────────────────────────── */
 @media (max-width: 640px) {
     h1 {
         font-size: var(--text-3xl);
@@ -53,6 +72,10 @@
         padding: var(--space-12) 0;
     }
 
+    .section-dark {
+        padding: var(--space-12) 0;
+    }
+
     .features-grid,
     .services-grid,
     .team-grid,
@@ -61,9 +84,36 @@
         grid-template-columns: 1fr;
     }
 
+    .hero {
+        min-height: auto;
+        padding: var(--space-12) 0;
+    }
+
+    .hero-content {
+        padding: var(--space-6);
+    }
+
     .hero-actions {
         flex-direction: column;
-        align-items: flex-start;
+        align-items: stretch;
+    }
+
+    .hero-actions .btn {
+        text-align: center;
+    }
+
+    .hero-glass-panel {
+        display: none;
+    }
+
+    .topbar {
+        padding: 0 var(--space-4);
+        gap: var(--space-3);
+        font-size: var(--text-xs);
+    }
+
+    .header {
+        padding: 0 var(--space-4);
     }
 
     .numbered-item {
@@ -82,5 +132,40 @@
 
     .promises-grid {
         grid-template-columns: 1fr;
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr;
+        gap: var(--space-8);
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        gap: var(--space-4);
+        text-align: center;
+    }
+
+    .cta-banner-inner {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .cta-banner-actions {
+        align-items: center;
+    }
+
+    .invisalign-banner {
+        flex-direction: column;
+        text-align: center;
+        padding: var(--space-8);
+    }
+
+    .content-block-image img {
+        min-height: 250px !important;
+    }
+
+    /* Glass panel on form — reduce padding */
+    .glass-liquid[style*="padding: var(--space-10)"] {
+        padding: var(--space-6) !important;
     }
 }
