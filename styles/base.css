@@ -149,12 +149,12 @@ small {
 }
 
 .section {
-    padding: var(--space-24) 0;
+    padding: var(--space-8) 0;
     position: relative;
 }
 
 .section-sm {
-    padding: var(--space-16) 0;
+    padding: var(--space-2) 0;
 }
 
 /* ── Alt section (soft tinted bg) ────────────────────── */
